@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Would You Rather — Popup Dare Edition</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="home-card">
+    <h1> WOULD YOU RATHER </h1>
+    
+
+    <div class="wr-blocks">
+        <!-- Option A: teleport -->
+        <div class="option-card">
+            <div class="risk-badge">⚠️ RISK: PEANUT BUTTER</div>
+            <div class="option-title"> TELEPORT</div>
+            <div class="desc">
+                Go anywhere, anytime.<br>
+                <small>⛔ but clothes might get slathered in peanut butter</small>
+            </div>
+        </div>
+        <!-- Option B: lift anything -->
+        <div class="option-card">
+            <div class="risk-badge">💥 RISK: CAT EXPLOSION</div>
+            <div class="option-title"> LIFT ANYTHING</div>
+            <div class="desc">
+                Superhuman strength for any object.<br>
+                <small>⛔ but a random cat will explode nearby (sorry)</small>
+            </div>
+        </div>
+    </div>
+
+    <!-- OPEN POPUP BUTTON — shows PICK YOUR DARE popup (separate from home) -->
+    <button class="popup-trigger-btn" id="openPopupBtn">🔓 OPEN POPUP &nbsp;▶</button>
+    <footer>click to reveal your dare challenge</footer>
+</div>
+
+<!-- ========== POPUP MODAL (PICK YOUR DARE) ========== -->
+<div id="darePopup" class="popup-overlay">
+    <div class="popup-container">
+        <div class="popup-header">
+            <h2>PICK YOUR DARE </h2>
+            <button class="close-popup" id="closePopupBtn" aria-label="Close">✕</button>
+        </div>
+        <div class="dare-intro">⚡ accept the dare, face the consequence ⚡</div>
+
+        <!-- Two dare options (First Dare / Second Dare) exactly as per design -->
+        <div class="dare-grid">
+            <!-- FIRST DARE -->
+            <div class="dare-card" data-dare="first">
+                <div class="dare-emoji"></div>
+                <div class="dare-title">FIRST DARE</div>
+                <div class="dare-desc"><br>Teleport to a random landmark<br>but your outfit is now a sandwich</div>
+            </div>
+            <!-- SECOND DARE -->
+            <div class="dare-card" data-dare="second">
+                <div class="dare-emoji"></div>
+                <div class="dare-title">SECOND DARE</div>
+                <div class="dare-desc"><br>Lift a 10-ton boulder, but a random<br>cat goes POOF (sparks only, no harm)</div>
+            </div>
+        </div>
+
+        <!-- dynamic message after picking a dare (also shows which you picked) -->
+        <div id="popupFeedback" class="popup-message">
+            👆 choose your dare above 👆
+        </div>
+        <button id="resetDareMessageBtn" class="reset-message">⟳ clear choice</button>
+        <footer style="margin-top: 12px;">🏆 each dare has its twisted reward</footer>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

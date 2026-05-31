@@ -1,0 +1,323 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none; /* subtle UI enhancement, text remains selectable if needed */
+}
+
+body {
+    background: linear-gradient(145deg, #1a2a3a 0%, #0f1a24 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', 'Inter', 'Poppins', system-ui, -apple-system, 'Roboto', sans-serif;
+    padding: 1.5rem;
+}
+
+/* MAIN CARD (HOME CONTENT) */
+.home-card {
+    background: rgba(255, 248, 235, 0.95);
+    backdrop-filter: blur(2px);
+    border-radius: 3.5rem;
+    max-width: 700px;
+    width: 100%;
+    padding: 2rem 2rem 2.5rem;
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 215, 150, 0.3);
+    transition: transform 0.2s ease;
+    text-align: center;
+}
+
+.home-card:hover {
+    transform: scale(1.01);
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #c97e2c, #f5b042);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    letter-spacing: -0.5px;
+    margin-bottom: 0.25rem;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.sub {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #4e5b6e;
+    margin-bottom: 2rem;
+    border-bottom: 1px dashed #e2c9a7;
+    display: inline-block;
+    padding-bottom: 6px;
+}
+
+/* Would you rather double options */
+.wr-blocks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin: 2rem 0 1rem;
+    justify-content: center;
+}
+
+.option-card {
+    background: #fff6ec;
+    border-radius: 2rem;
+    padding: 1.5rem 1rem;
+    flex: 1;
+    min-width: 220px;
+    box-shadow: 0 12px 22px -10px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s;
+    border: 1px solid #ffe0b5;
+}
+
+.option-card:hover {
+    background: #fffbf5;
+    transform: translateY(-5px);
+    border-color: #f3bc6c;
+}
+
+.risk-badge {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: #f0e0cc;
+    display: inline-block;
+    padding: 0.2rem 1rem;
+    border-radius: 40px;
+    color: #ad6b35;
+    margin-bottom: 1rem;
+}
+
+.option-title {
+    font-size: 1.7rem;
+    font-weight: 800;
+    color: #2c3e2f;
+    margin: 0.5rem 0;
+}
+
+.desc {
+    font-size: 1rem;
+    color: #4a3b2c;
+    line-height: 1.4;
+    padding: 0 0.3rem;
+}
+
+.desc small {
+    display: block;
+    font-size: 0.8rem;
+    color: #8b694a;
+    margin-top: 8px;
+    font-style: italic;
+}
+
+/* OPEN POPUP BUTTON */
+.popup-trigger-btn {
+    background: #2f3e46;
+    border: none;
+    margin-top: 2rem;
+    padding: 0.9rem 2rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 60px;
+    color: #fef9e6;
+    cursor: pointer;
+    box-shadow: 0 5px 0 #1a2a2e;
+    transition: 0.07s linear;
+    font-family: inherit;
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.popup-trigger-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #1a2a2e;
+}
+
+/* ================ POPUP OVERLAY (MODAL) ================ */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(6px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.2s, opacity 0.2s ease;
+}
+
+.popup-overlay.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* POPUP CARD — PICK YOUR DARE (totally separate from home) */
+.popup-container {
+    background: #fef7e9;
+    border-radius: 3rem;
+    width: 90%;
+    max-width: 550px;
+    padding: 1.8rem 1.8rem 2.2rem;
+    box-shadow: 0 40px 70px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    border: 2px solid #ffda99;
+    animation: popupFadeIn 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+@keyframes popupFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.popup-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    text-align: center;
+}
+
+.popup-header h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    background: linear-gradient(145deg, #b45f2b, #e99747);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    letter-spacing: -0.3px;
+}
+
+.close-popup {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #846b4a;
+    transition: 0.1s;
+    line-height: 1;
+    padding: 0 8px;
+    font-weight: 600;
+}
+
+.close-popup:hover {
+    color: #c23b22;
+    transform: scale(1.1);
+}
+
+.dare-intro {
+    font-size: 1rem;
+    background: #f1e7da;
+    display: inline-block;
+    padding: 0.2rem 1.2rem;
+    border-radius: 30px;
+    color: #84613b;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+/* DARE BUTTONS grid */
+.dare-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.8rem;
+    justify-content: center;
+    margin: 1.8rem 0 1rem;
+}
+
+.dare-card {
+    background: white;
+    border-radius: 2rem;
+    padding: 1.3rem 0.8rem;
+    flex: 1;
+    min-width: 180px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 2px solid #f0dbbc;
+    box-shadow: 0 8px 12px -8px rgba(0, 0, 0, 0.2);
+}
+
+.dare-card:hover {
+    background: #fff5e8;
+    border-color: #e7b56e;
+    transform: translateY(-4px);
+}
+
+.dare-emoji {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.dare-title {
+    font-weight: 800;
+    font-size: 1.4rem;
+    color: #3b2c1f;
+}
+
+.dare-desc {
+    font-size: 0.85rem;
+    color: #886f4b;
+    margin-top: 8px;
+    font-weight: 500;
+}
+
+/* response message inside popup */
+.popup-message {
+    margin-top: 1.2rem;
+    font-weight: 600;
+    background: #e9dfd1;
+    border-radius: 60px;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    color: #3f2f1d;
+    transition: 0.1s;
+}
+
+.reset-message {
+    background: none;
+    border: none;
+    color: #b56a2e;
+    font-size: 0.75rem;
+    text-decoration: underline;
+    margin-top: 8px;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+footer {
+    margin-top: 1.5rem;
+    font-size: 0.7rem;
+    color: #a58e71;
+}
+
+@media (max-width: 550px) {
+    .home-card {
+        padding: 1.5rem;
+    }
+    .option-title {
+        font-size: 1.3rem;
+    }
+    .popup-container {
+        padding: 1.5rem;
+    }
+    .dare-title {
+        font-size: 1.2rem;
+    }
+}
