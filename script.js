@@ -10,7 +10,7 @@ function openPopup() {
     if (popupOverlay) {
         popupOverlay.classList.add('active');
         // reset to fresh message when popup opens
-        feedbackDiv.innerHTML = "✨ tap FIRST DARE or SECOND DARE ✨";
+        feedbackDiv.innerHTML = " tap FIRST DARE or SECOND DARE ";
         feedbackDiv.style.background = "#e9dfd1";
     }
 }
@@ -90,7 +90,7 @@ if (secondDareCard) {
 if (resetMsgBtn) {
     resetMsgBtn.addEventListener('click', () => {
         if (feedbackDiv) {
-            feedbackDiv.innerHTML = "👀 Dare reset — pick again? First or Second? 👀";
+            feedbackDiv.innerHTML = " Dare reset — pick again? First or Second? ";
             feedbackDiv.style.background = "#e9dfd1";
             feedbackDiv.style.fontWeight = "600";
         }
